@@ -1,16 +1,19 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-	<title>Laboratório 2 - Configuração e gerenciamento de serviços de rede</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
 </head>
+
 <body>
 	<h1>Laboratório 2 - Configuração e gerenciamento de serviços de rede</h1>
-	<p>Este laboratório tem como objetivo fornecer um ambiente virtual para prática de configuração e gerenciamento de serviços de rede, como DHCP, DNS e servidor web.</p>
-php
-Copy code
+	
+<p>Este laboratório tem como objetivo fornecer um ambiente virtual para prática de configuração e gerenciamento de serviços de rede, como DHCP, DNS e servidor web.</p>
+
 <h2>Tecnologias utilizadas</h2>
+
 <ul>
 	<li><i class="fab fa-ubuntu"></i> Ubuntu como sistema operacional</li>
 	<li><i class="fas fa-cog"></i> Vagrant para criação do ambiente virtual</li>
@@ -20,9 +23,11 @@ Copy code
 </ul>
 
 <h2>Pré-requisitos</h2>
+
 <p>Para executar este laboratório, é necessário ter o Vagrant instalado em sua máquina. Para instalar o Vagrant, siga as instruções do site oficial: https://www.vagrantup.com/docs/installation</p>
 
 <h2>Como executar</h2>
+
 <ol>
 	<li>Clone este repositório para sua máquina local:</li>
 	<pre><code>git clone https://github.com/seu-usuario/lab-redes.git</code></pre>
@@ -36,6 +41,7 @@ Copy code
 </ol>
 
 <h2>Estrutura do projeto</h2>
+
 <pre><code>.
 ├── Vagrantfile
 ├── config/
@@ -51,8 +57,6 @@ Copy code
 └── example.com.zone
 </code></pre>
 
-less
-Copy code
 <h3>Arquivos de configuração</h3>
 <ul>
 	<li>dhcpd.conf: arquivo de configuração do servidor DHCP</li>
@@ -103,43 +107,61 @@ Copy code
 <h3>Tecnologias utilizadas</h3>
 
 <p>As seguintes tecnologias foram utilizadas neste projeto:</p>
+
 <ul>
 	<li><i class="fab fa-vagrant"></i> Vagrant</li>
 	<li><i class="fab fa-linux"></i> Linux</li>
 	<li><i class="fas fa-server"></i> DHCP</li>
 	<li><i class="fas fa-globe"></i> DNS</li>
-	<li><iclass="fas fa-globe"></i> Servidor web Apache</li>
-
+	<li><i class="fas fa-globe"></i> Servidor web Apache</li>
 </ul>
 <h3>Passo a passo</h3>
+
 <p>A seguir, é apresentado o passo a passo para configurar e gerenciar os serviços de rede DHCP, DNS e servidor web Apache em um ambiente virtual utilizando o Vagrant.</p>
+
 <h4>Pré-requisitos</h4>
+
 <ul>
 	<li><a href="https://www.virtualbox.org/">VirtualBox</a> instalado</li>
 	<li><a href="https://www.vagrantup.com/downloads.html">Vagrant</a> instalado</li>
 </ul>
+
 <h4>Passo 1: Clone o repositório</h4>
+
 <p>Abra o terminal e clone o repositório do projeto:</p>
-<pre><code>git clone https://github.com/seu-usuario/nome-do-repositorio.git
-</code></pre>
+
+<pre><code>git clone https://github.com/seu-usuario/nome-do-repositorio.git</code></pre>
+
 <h4>Passo 2: Acesse o diretório do projeto</h4>
+
 <p>Entre no diretório do projeto clonado:</p>
-<pre><code>cd nome-do-repositorio
-</code></pre>
+
+<pre><code>cd nome-do-repositorio</code></pre>
+
 <h4>Passo 3: Inicie o ambiente virtual</h4>
+
 <p>Inicie o ambiente virtual utilizando o Vagrant:</p>
-<pre><code>vagrant up
-</code></pre>
+
+<pre><code>vagrant up</code></pre>
+
 <p>Este comando irá criar e configurar a máquina virtual de acordo com as especificações definidas no Vagrantfile.</p>
+
 <h4>Passo 4: Acesse a máquina virtual</h4>
+
 <p>Após a criação e configuração da máquina virtual, acesse-a via SSH:</p>
-<pre><code>vagrant ssh
-</code></pre>
+
+<pre><code>vagrant ssh</code></pre>
+
 <h4>Passo 5: Teste o serviço DHCP</h4>
+
 <p>Para testar o serviço DHCP, execute o comando a seguir:</p>
+
 <pre><code>sudo systemctl status isc-dhcp-server
+
 </code></pre>
+
 <p>Este comando irá verificar se o serviço está em execução. Em caso afirmativo, o resultado será algo semelhante a:</p>
+
 <pre><code>● isc-dhcp-server.service - ISC DHCP IPv4 server
    Loaded: loaded (/lib/systemd/system/isc-dhcp-server.service; enabled; vendor preset: enabled)
    Active: active (running) since Sat 2023-05-13 18:28:19 UTC; 5s ago
@@ -160,20 +182,14 @@ Feito isso, o servidor DHCP já estará funcionando e atribuindo endereços IP p
 Configurando o servidor DNS
 Para configurar o servidor DNS, basta executar o comando abaixo na pasta raiz do projeto:
 
-arduino
-Copy code
 vagrant ssh dns -c "sudo /vagrant/scripts/install-dns.sh"
 Este comando irá executar o script de instalação e configuração do servidor DNS que foi disponibilizado na pasta scripts. O script irá instalar o pacote bind9 e configurar o servidor DNS para responder requisições da zona example.com.
 
 Após a instalação, será possível verificar se o servidor DNS está funcionando corretamente executando o comando abaixo:
 
-arduino
-Copy code
 vagrant ssh dns -c "nslookup example.com"
 Se tudo estiver funcionando corretamente, a resposta deverá ser semelhante a essa:
 
-yaml
-Copy code
 Server:         10.0.2.3
 Address:        10.0.2.3#53
 
@@ -182,20 +198,16 @@ Address:        192.168.50.10
 Configurando o servidor web
 Para configurar o servidor web, basta executar o comando abaixo na pasta raiz do projeto:
 
-arduino
-Copy code
+
 vagrant ssh web -c "sudo /vagrant/scripts/install-webserver.sh"
 Este comando irá executar o script de instalação e configuração do servidor web que foi disponibilizado na pasta scripts. O script irá instalar o pacote apache2 e configurar o servidor para utilizar o arquivo index.html que foi disponibilizado na pasta files.
 
 Após a instalação, será possível verificar se o servidor web está funcionando corretamente executando o comando abaixo:
 
-arduino
-Copy code
 curl http://192.168.50.10
 Se tudo estiver funcionando corretamente, a resposta deverá ser semelhante a essa:
 
-php
-Copy code
+
 <html>
   <head>
     <title>Welcome to Example.com!</title>
@@ -204,16 +216,19 @@ Copy code
     <h1>Hello, World!</h1>
   </body>
 </html>
-Considerações finais
-Este laboratório foi apenas um exemplo básico de como configurar e gerenciar serviços de rede como DHCP, DNS e servidor web utilizando o Vagrant. É importante lembrar que as configurações podem variar de acordo com as necessidades do projeto e que é importante ter conhecimento em SysAdmin para gerenciar servidores e equipamentos de rede em um ambiente de produção.
 
-Tecnologias utilizadas
-As seguintes tecnologias foram utilizadas neste projeto:
+<h1>Considerações finais</h1>
+
+<p>Este laboratório foi apenas um exemplo básico de como configurar e gerenciar serviços de rede como DHCP, DNS e servidor web utilizando o Vagrant. É importante lembrar que as configurações podem variar de acordo com as necessidades do projeto e que é importante ter conhecimento em SysAdmin para gerenciar servidores e equipamentos de rede em um ambiente de produção.</p>
+
+<h1>Tecnologias utilizadas</h1>
+
+<p>As seguintes tecnologias foram utilizadas neste projeto:</p>
 
 <ul>
-	<li><i class="fab fa-vagrant"></i> Vagrant</li>
-	<li><i class="fab fa-linux"></i> Linux</li>
-	<li><i class="fas fa-server"></i> DHCP</li>
-	<li><i class="fas fa-globe"></i> DNS</li>
-	<li><i class="fab fa-apache"></i> Apache</li>
+  <li><a href="https://fontawesome.com/icons/vagrant?style=brands"><i class="fab fa-vagrant"></i> Vagrant</a></li>
+  <li><a href="https://fontawesome.com/icons/linux?style=brands"><i class="fab fa-linux"></i> Linux</a></li>
+  <li><a href="https://fontawesome.com/icons/server?style=solid"><i class="fas fa-server"></i> DHCP</a></li>
+  <li><a href="https://fontawesome.com/icons/globe?style=solid"><i class="fas fa-globe"></i> DNS</a></li>
+  <li><a href="https://fontawesome.com/icons/apache?style=brands"><i class="fab fa-apache"></i> Apache</a></li>
 </ul>

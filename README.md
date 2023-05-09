@@ -207,6 +207,7 @@ Após a instalação, será possível verificar se o servidor web está funciona
 curl http://192.168.50.10
 Se tudo estiver funcionando corretamente, a resposta deverá ser semelhante a essa:
 
+<br>
 
 <html>
   <head>
@@ -219,11 +220,11 @@ Se tudo estiver funcionando corretamente, a resposta deverá ser semelhante a es
 
 <h1>Considerações finais</h1>
 
-<p>Este laboratório foi apenas um exemplo básico de como configurar e gerenciar serviços de rede como DHCP, DNS e servidor web utilizando o Vagrant. É importante lembrar que as configurações podem variar de acordo com as necessidades do projeto e que é importante ter conhecimento em SysAdmin para gerenciar servidores e equipamentos de rede em um ambiente de produção.</p>
+### Este laboratório foi apenas um exemplo básico de como configurar e gerenciar serviços de rede como DHCP, DNS e servidor web utilizando o Vagrant. É importante lembrar que as configurações podem variar de acordo com as necessidades do projeto e que é importante ter conhecimento em SysAdmin para gerenciar servidores e equipamentos de rede em um ambiente de produção.
 
 <h1>Tecnologias utilizadas</h1>
 
-<p>As seguintes tecnologias foram utilizadas neste projeto:</p>
+### As seguintes tecnologias foram utilizadas neste projeto:
 
 <ul>
   <li><a href="https://fontawesome.com/icons/vagrant?style=brands"><i class="fab fa-vagrant"></i> Vagrant</a></li>

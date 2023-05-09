@@ -1,0 +1,1 @@
+Note que esses arquivos são exemplos básicos de configurações para os serviços DHCP e DNS. Em um ambiente de produção, as configurações podem variar de acordo com as necessidades do projeto.

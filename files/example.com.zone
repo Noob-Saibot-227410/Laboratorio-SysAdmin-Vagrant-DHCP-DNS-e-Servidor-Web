@@ -1,0 +1,13 @@
+$TTL    86400   ; Tempo de vida do cache
+@       IN      SOA     example.com. admin.example.com. (
+                        2011051501 ; serial
+                        10800      ; refresh (3 horas)
+                        3600       ; retry (1 hora)
+                        604800     ; expire (1 semana)
+                        38400      ; TTL mínimo (10 horas e 40 minutos)
+                        )
+        IN      NS      ns.example.com. ; servidor DNS primário
+        IN      NS      ns2.example.com. ; servidor DNS secundário
+ns      IN      A       192.168.0.2     ; endereço IP do servidor DNS primário
+ns2     IN      A       192.168.0.3     ; endereço IP do servidor DNS secundário
+www     IN      A       192.168.0.10    ; endereço IP do servidor web

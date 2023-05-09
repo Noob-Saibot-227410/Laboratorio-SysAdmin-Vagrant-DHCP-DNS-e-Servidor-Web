@@ -1,0 +1,22 @@
+options {
+  directory "/var/cache/bind";
+
+  // Habilita o recurso de transferência de zona
+  allow-transfer {
+    none;
+  };
+
+  // Habilita o recurso de recursão
+  recursion yes;
+
+  // Endereços dos servidores de DNS raiz
+  forwarders {
+    8.8.8.8;
+    8.8.4.4;
+  };
+
+  // Configuração de cache DNS
+  dnssec-validation auto;
+  auth-nxdomain no; # Verifica a existência de nomes de domínio que não existem
+  listen-on-v6 { none; }; # Desabilita a escuta em IPv6
+};
